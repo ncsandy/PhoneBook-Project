@@ -24,7 +24,7 @@ public class PhoneBook {
         String middleName = "";
 
         //For loop for multiple middle names Thanks Alex
-        for (int i = 1; i < splitName.length - 1; i++) { //code still broken
+        for (int i = 1; i < splitName.length - 1; i++) {
             middleName += splitName[i] +" ";
 
 
@@ -52,8 +52,6 @@ public class PhoneBook {
 
         directory = temp;
 
-        //   directory[size] = newEntry; // adding new person object into the directory
-        //   size++; //increase the space..so for the next person
         System.out.println("Entry was sucessful");
         Arrays.sort(directory);
     }
@@ -116,7 +114,9 @@ public class PhoneBook {
 
         System.out.println("Here are the matches we found");
         for (int i = 0; i < samePhone.length; i++) {
-            System.out.println(samePhone[i]);
+            if(samePhone[i] != null) {
+                System.out.println(samePhone[i]);
+            }
         }
     }
 
@@ -136,10 +136,11 @@ public class PhoneBook {
 
         System.out.println("Here are the matches we found");
         for (int i = 0; i < sameFullName.length; i++) {
-            System.out.println(sameFullName[i]);
-        }
+            if(sameFullName[i] != null) {
+                System.out.println(sameFullName[i]);
+            }
+            }
     }
-
 
     public void searchbyFirst(String first) {
         Person[] sameFirst = new Person[10];
@@ -154,7 +155,9 @@ public class PhoneBook {
 
         System.out.println("Here are the matches we found`");
         for (int i = 0; i < sameFirst.length; i++) {
-            System.out.println(sameFirst[i]);
+            if(sameFirst[i] != null) {
+                System.out.println(sameFirst[i]);
+            }
         }
     }
 
@@ -171,7 +174,9 @@ public class PhoneBook {
 
         System.out.println("Here are the matches we found`");
         for (int i = 0; i < sameLast.length; i++) {
-            System.out.println(sameLast[i]);
+            if(sameLast[i] != null) {
+                System.out.println(sameLast[i]);
+            }
         }
     }
 
@@ -186,9 +191,11 @@ public class PhoneBook {
             count++;
         }
 
-        System.out.println("Here are the matches we found`");
+        System.out.println("Here are the matches we found");
         for (int i = 0; i < sameCity.length; i++) {
-            System.out.println(sameCity[i]);
+            if(sameCity[i] != null) {
+                System.out.println(sameCity[i]);
+            }
         }
     }
 
@@ -205,7 +212,9 @@ public class PhoneBook {
 
         System.out.println("Here are the matches we found`");
         for (int i = 0; i < sameState.length; i++) {
-            System.out.println(sameState[i]);
+            if(sameState[i] != null) {
+                System.out.println(sameState[i]);
+            }
         }
     }
 
@@ -289,6 +298,26 @@ public class PhoneBook {
             }
 
         }
+        resizeArray();
+    }
 
+    public void resizeArray(){
+        int size = 0;
+        for(int i = 0; i<directory.length; i++)
+        {
+            if(directory[i] != null)
+            {
+                size++;
+            }
+
+        }
+        Person [] tempA = new Person [size];
+
+        for(int i = 0; i<directory.length; i++){
+            if(directory[i] != null){
+                tempA[i] = directory[i];
+            }
+        }
+        directory = tempA;
     }
 }

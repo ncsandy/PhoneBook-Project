@@ -60,12 +60,12 @@ public class Home {
                     phoneBook.searchOptions(pInput);
                     break;
                 case 4:
-                    System.out.println("Updating record");
+                    System.out.println("Enter phone number to update record");
                     String uInput = sc.nextLine();
                     phoneBook.updateRecord(uInput);
                     break;
                 case 5:
-                    System.out.println("Delete record");
+                    System.out.println("Enter phone number");
                     String dInput = sc.nextLine();
                     phoneBook.deleteRecord(dInput);
                     break;
